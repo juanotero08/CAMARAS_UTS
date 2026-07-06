@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación - Sistema de Gestión de Cámaras</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .document {
+            background-color: white;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .portada {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 3px solid #0066cc;
+            margin-bottom: 60px;
+        }
+        .portada h1 {
+            font-size: 42px;
+            color: #0066cc;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .portada h2 {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .portada .info {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #666;
+        }
+        .portada .info p {
+            margin: 8px 0;
+        }
+        h2 {
+            font-size: 28px;
+            color: #0066cc;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 10px;
+        }
+        h3 {
+            font-size: 20px;
+            color: #0066cc;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        h4 {
+            font-size: 16px;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .feature-box {
+            background-color: #f0f4ff;
+            border-left: 4px solid #0066cc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .feature-box h4 {
+            color: #0066cc;
+            margin-top: 0;
+        }
+        .tabla {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .tabla th {
+            background-color: #0066cc;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+        .tabla td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        .tabla tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .codigo {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        .seccion {
+            page-break-inside: avoid;
+            margin-bottom: 40px;
+        }
+        .conclusiones {
+            background-color: #e8f4f8;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 4px;
+        }
+        .fecha {
+            text-align: right;
+            color: #999;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="document">
+        <!-- PORTADA -->
+        <div class="portada">
+            <h1>🎥 SISTEMA DE GESTIÓN DE CÁMARAS</h1>
+            <h2>Documentación del Proyecto</h2>
+            <div class="info">
+                <p><strong>Versión:</strong> 1.0.0</p>
+                <p><strong>Autor:</strong> Juan Otero</p>
+                <p><strong>Framework:</strong> Laravel 11 + Vue.js/Tailwind CSS</p>
+                <p><strong>Fecha:</strong> 2026</p>
+            </div>
+        </div>
+
+        <!-- TABLA DE CONTENIDOS -->
+        <div class="seccion">
+            <h2>Tabla de Contenidos</h2>
+            <ol>
+                <li>Introducción</li>
+                <li>Descripción General del Proyecto</li>
+                <li>Requisitos del Sistema</li>
+                <li>Estructura del Proyecto</li>
+                <li>Componentes Principales</li>
+                <li>Modelos de Datos</li>
+                <li>Controladores</li>
+                <li>Rutas</li>
+                <li>Funcionalidades</li>
+                <li>Guía de Instalación</li>
+                <li>Guía de Uso</li>
+                <li>Tecnologías Utilizadas</li>
+                <li>Conclusiones</li>
+            </ol>
+        </div>
+
+        <!-- 1. INTRODUCCIÓN -->
+        <div class="seccion">
+            <h2>1. Introducción</h2>
+            <p>
+                El Sistema de Gestión de Cámaras es una aplicación web moderna desarrollada con el framework Laravel,
+                diseñada para administrar, monitorear y controlar una red de cámaras de vigilancia.
+                La aplicación proporciona una interfaz intuitiva y funcionalidades avanzadas que permiten
+                a los administradores mantener un registro detallado de todas las cámaras instaladas en la red.
+            </p>
+            <p>
+                Este sistema fue creado como solución a la necesidad de automatizar el monitoreo y la gestión
+                de múltiples cámaras IP, permitiendo verificar el estado de las cámaras en tiempo real mediante
+                pings automáticos cada 5 minutos.
+            </p>
+        </div>
+
+        <!-- 2. DESCRIPCIÓN GENERAL -->
+        <div class="seccion">
+            <h2>2. Descripción General del Proyecto</h2>
+            <p>
+                Este proyecto es una aplicación web de gestión de cámaras que implementa un sistema completo
+                de CRUD (Create, Read, Update, Delete) para administrar cámaras de vigilancia.
+            </p>
+            <h3>Objetivos Principales</h3>
+            <ul>
+                <li><strong>Gestión de Cámaras:</strong> Crear, editar, ver y eliminar registros de cámaras</li>
+                <li><strong>Monitoreo Automático:</strong> Verificar el estado de cada cámara automáticamente cada 5 minutos</li>
+                <li><strong>Búsqueda Avanzada:</strong> Filtrar cámaras por múltiples criterios (nombre, IP, ubicación, MAC, etc.)</li>
+                <li><strong>Autenticación Segura:</strong> Sistema de login para proteger el acceso a los datos</li>
+                <li><strong>Dashboard Informativo:</strong> Estadísticas en tiempo real del estado de las cámaras</li>
+            </ul>
+        </div>
+
+        <!-- 3. REQUISITOS DEL SISTEMA -->
+        <div class="seccion">
+            <h2>3. Requisitos del Sistema</h2>
+            <h3>Software Requerido</h3>
+            <ul>
+                <li><strong>PHP:</strong> 8.1 o superior</li>
+                <li><strong>Laravel:</strong> 11.0 o superior</li>
+                <li><strong>Node.js:</strong> 18.0 o superior</li>
+                <li><strong>Composer:</strong> Última versión</li>
+                <li><strong>MySQL/MariaDB:</strong> 5.7 o superior</li>
+                <li><strong>Git:</strong> Para control de versiones</li>
+            </ul>
+            <h3>Hardware Mínimo</h3>
+            <ul>
+                <li>Procesador: Intel Core i5 o equivalente</li>
+                <li>RAM: 4GB mínimo, 8GB recomendado</li>
+                <li>Espacio en disco: 500MB para instalación</li>
+                <li>Conexión a Internet: Para acceso a cámaras remotas</li>
+            </ul>
+        </div>
+
+        <!-- 4. ESTRUCTURA DEL PROYECTO -->
+        <div class="seccion">
+            <h2>4. Estructura del Proyecto</h2>
+            <p>El proyecto sigue la estructura estándar de Laravel:</p>
+            <div class="codigo">
+camaras-app/
+├── app/                          # Código de la aplicación
+│   ├── Http/
+│   │   ├── Controllers/          # Controladores (AuthController, CamaraController)
+│   │   └── Middleware/           # Middleware de la aplicación
+│   ├── Models/                   # Modelos Eloquent (User, Camara)
+│   ├── Console/
+│   │   └── Commands/             # Comandos personalizados
+│   └── Jobs/                     # Jobs para tareas en background
+├── config/                       # Archivos de configuración
+├── database/
+│   ├── migrations/               # Migraciones de base de datos
+│   └── seeders/                  # Datos iniciales
+├── resources/
+│   ├── views/                    # Vistas Blade
+│   │   ├── auth/                 # Vistas de autenticación
+│   │   └── camaras/              # Vistas de cámaras
+│   ├── css/                      # Estilos CSS
+│   └── js/                       # Archivos JavaScript
+├── routes/
+│   ├── web.php                   # Rutas web
+│   └── console.php               # Rutas de consola
+├── storage/                      # Almacenamiento de archivos
+├── public/                       # Carpeta pública (punto de entrada)
+├── vendor/                       # Dependencias (Composer)
+├── node_modules/                 # Dependencias npm
+├── composer.json                 # Dependencias PHP
+├── package.json                  # Dependencias JavaScript
+└── .env                          # Variables de entorno
+            </div>
+        </div>
+
+        <!-- 5. COMPONENTES PRINCIPALES -->
+        <div class="seccion">
+            <h2>5. Componentes Principales</h2>
+            <h3>Controladores</h3>
+            <div class="feature-box">
+                <h4>AuthController</h4>
+                <p>Gestiona la autenticación de usuarios:</p>
+                <ul>
+                    <li><strong>showLoginForm():</strong> Muestra el formulario de login</li>
+                    <li><strong>login():</strong> Valida credenciales y autentica al usuario</li>
+                    <li><strong>logout():</strong> Cierra la sesión del usuario</li>
+                </ul>
+            </div>
+            <div class="feature-box">
+                <h4>CamaraController</h4>
+                <p>Gestiona todas las operaciones con cámaras:</p>
+                <ul>
+                    <li><strong>index():</strong> Lista todas las cámaras con búsqueda y filtros avanzados</li>
+                    <li><strong>create():</strong> Muestra formulario para crear cámara</li>
+                    <li><strong>store():</strong> Guarda una nueva cámara en la base de datos</li>
+                    <li><strong>edit():</strong> Muestra formulario para editar cámara</li>
+                    <li><strong>update():</strong> Actualiza datos de una cámara existente</li>
+                    <li><strong>destroy():</strong> Elimina una cámara de la base de datos</li>
+                    <li><strong>verificarEstado():</strong> Verifica el estado de una cámara mediante ping</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 6. MODELOS DE DATOS -->
+        <div class="seccion">
+            <h2>6. Modelos de Datos</h2>
+            <h3>Modelo: Camara</h3>
+            <p>Representa una cámara de vigilancia en el sistema.</p>
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Tipo</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>Integer</td>
+                        <td>Identificador único (clave primaria)</td>
+                    </tr>
+                    <tr>
+                        <td>nombre</td>
+                        <td>String(255)</td>
+                        <td>Nombre de la cámara</td>
+                    </tr>
+                    <tr>
+                        <td>ip</td>
+                        <td>String</td>
+                        <td>Dirección IP de la cámara</td>
+                    </tr>
+                    <tr>
+                        <td>nvr</td>
+                        <td>String(255)</td>
+                        <td>NVR (Network Video Recorder) asociado</td>
+                    </tr>
+                    <tr>
+                        <td>canal</td>
+                        <td>String(255)</td>
+                        <td>Número o nombre del canal</td>
+                    </tr>
+                    <tr>
+                        <td>mac</td>
+                        <td>String(17)</td>
+                        <td>Dirección MAC de la cámara</td>
+                    </tr>
+                    <tr>
+                        <td>ubicacion</td>
+                        <td>String(255)</td>
+                        <td>Ubicación física de la cámara</td>
+                    </tr>
+                    <tr>
+                        <td>estado</td>
+                        <td>String</td>
+                        <td>Estado actual (DISPONIBLE, CAIDA, ESPERA)</td>
+                    </tr>
+                    <tr>
+                        <td>ultima_conexion</td>
+                        <td>DateTime</td>
+                        <td>Fecha y hora del último acceso exitoso</td>
+                    </tr>
+                    <tr>
+                        <td>created_at</td>
+                        <td>DateTime</td>
+                        <td>Fecha de creación del registro</td>
+                    </tr>
+                    <tr>
+                        <td>updated_at</td>
+                        <td>DateTime</td>
+                        <td>Fecha de última actualización</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Modelo: User</h3>
+            <p>Representa un usuario del sistema con credenciales de acceso.</p>
+        </div>
+
+        <!-- 7. CONTROLADORES -->
+        <div class="seccion">
+            <h2>7. Controladores en Detalle</h2>
+            <h3>CamaraController::index()</h3>
+            <p>Implementa búsqueda avanzada con filtros para los siguientes campos:</p>
+            <ul>
+                <li>Nombre</li>
+                <li>Dirección IP</li>
+                <li>Ubicación</li>
+                <li>NVR</li>
+                <li>Canal</li>
+                <li>Dirección MAC</li>
+                <li>Estado</li>
+            </ul>
+            <p>Además calcula estadísticas en tiempo real:</p>
+            <ul>
+                <li>Total de cámaras</li>
+                <li>Cámaras activas (DISPONIBLE)</li>
+                <li>Cámaras caídas (CAIDA)</li>
+                <li>Cámaras en espera (ESPERA)</li>
+            </ul>
+            <h3>CamaraController::store()</h3>
+            <p>Valida los datos siguientes:</p>
+            <ul>
+                <li><strong>nombre:</strong> Requerido, máximo 255 caracteres</li>
+                <li><strong>ip:</strong> Requerido, debe ser una IP válida</li>
+                <li><strong>ubicacion:</strong> Requerido, máximo 255 caracteres</li>
+                <li><strong>nvr, mac, canal:</strong> Opcionales</li>
+            </ul>
+            <p>El estado inicial se establece automáticamente como "ESPERA".</p>
+        </div>
+
+        <!-- 8. RUTAS -->
+        <div class="seccion">
+            <h2>8. Rutas de la Aplicación</h2>
+            <h3>Rutas Públicas (Sin autenticación)</h3>
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Ruta</th>
+                        <th>Método</th>
+                        <th>Controlador</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>/login</td>
+                        <td>GET</td>
+                        <td>AuthController@showLoginForm</td>
+                        <td>Muestra formulario de login</td>
+                    </tr>
+                    <tr>
+                        <td>/login</td>
+                        <td>POST</td>
+                        <td>AuthController@login</td>
+                        <td>Procesa el login</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Rutas Protegidas (Requieren autenticación)</h3>
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Ruta</th>
+                        <th>Método</th>
+                        <th>Controlador</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>/logout</td>
+                        <td>POST</td>
+                        <td>AuthController@logout</td>
+                        <td>Cierra la sesión</td>
+                    </tr>
+                    <tr>
+                        <td>/camaras</td>
+                        <td>GET</td>
+                        <td>CamaraController@index</td>
+                        <td>Lista todas las cámaras</td>
+                    </tr>
+                    <tr>
+                        <td>/camaras/create</td>
+                        <td>GET</td>
+                        <td>CamaraController@create</td>
+                        <td>Formulario para crear cámara</td>
+                    </tr>
+                    <tr>
+                        <td>/camaras</td>
+                        <td>POST</td>
+                        <td>CamaraController@store</td>
+                        <td>Guarda nueva cámara</td>
+                    </tr>
+                    <tr>
+                        <td>/camaras/{id}/edit</td>
+                        <td>GET</td>
+                        <td>CamaraController@edit</td>
+                        <td>Formulario para editar cámara</td>
+                    </tr>
+                    <tr>
+                        <td>/camaras/{id}</td>
+                        <td>PUT</td>
+                        <td>CamaraController@update</td>
+                        <td>Actualiza cámara existente</td>
+                    </tr>
+                    <tr>
+                        <td>/camaras/{id}</td>
+                        <td>DELETE</td>
+                        <td>CamaraController@destroy</td>
+                        <td>Elimina una cámara</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 9. FUNCIONALIDADES -->
+        <div class="seccion">
+            <h2>9. Funcionalidades del Sistema</h2>
+            <h3>9.1 Autenticación de Usuarios</h3>
+            <p>
+                El sistema implementa un sistema de autenticación seguro basado en Laravel Sanctum.
+                Los usuarios deben ingresar su email y contraseña para acceder a las funcionalidades del sistema.
+            </p>
+            <h3>9.2 Gestión CRUD de Cámaras</h3>
+            <div class="feature-box">
+                <h4>Crear Cámaras</h4>
+                <p>Permite agregar nuevas cámaras al sistema con los siguientes datos:</p>
+                <ul>
+                    <li>Nombre identificativo</li>
+                    <li>Dirección IP</li>
+                    <li>NVR asociado (opcional)</li>
+                    <li>Canal (opcional)</li>
+                    <li>Dirección MAC (opcional)</li>
+                    <li>Ubicación física</li>
+                </ul>
+            </div>
+            <div class="feature-box">
+                <h4>Ver Cámaras</h4>
+                <p>
+                    Visualiza todas las cámaras registradas en una tabla con su estado actual.
+                    Incluye un dashboard con estadísticas de cámaras disponibles, caídas y en espera.
+                </p>
+            </div>
+            <div class="feature-box">
+                <h4>Editar Cámaras</h4>
+                <p>Permite modificar cualquier información de una cámara existente excepto su estado.</p>
+            </div>
+            <div class="feature-box">
+                <h4>Eliminar Cámaras</h4>
+                <p>Permite eliminar registros de cámaras del sistema.</p>
+            </div>
+            <h3>9.3 Búsqueda y Filtrado Avanzado</h3>
+            <p>
+                El sistema permite buscar cámaras por 7 criterios diferentes simultáneamente:
+            </p>
+            <ul>
+                <li>Nombre</li>
+                <li>Dirección IP</li>
+                <li>Ubicación</li>
+                <li>NVR</li>
+                <li>Canal</li>
+                <li>Dirección MAC</li>
+                <li>Estado</li>
+            </ul>
+            <h3>9.4 Monitoreo Automático de Estado</h3>
+            <p>
+                El sistema verifica automáticamente el estado de todas las cámaras cada 5 minutos mediante:
+            </p>
+            <ul>
+                <li><strong>Comando Artisan:</strong> <code>php artisan verificar:camaras</code></li>
+                <li><strong>Auto-actualización:</strong> <code>php artisan camaras:auto-actualizar</code></li>
+            </ul>
+            <p>
+                El estado se actualiza a "DISPONIBLE" si la cámara responde al ping,
+                o "CAIDA" si no hay respuesta.
+            </p>
+            <h3>9.5 Dashboard Informativo</h3>
+            <p>
+                La página principal muestra estadísticas en tiempo real:
+            </p>
+            <ul>
+                <li>Total de cámaras registradas</li>
+                <li>Cantidad de cámaras disponibles</li>
+                <li>Cantidad de cámaras caídas</li>
+                <li>Cantidad de cámaras en espera</li>
+            </ul>
+        </div>
+
+        <!-- 10. GUÍA DE INSTALACIÓN -->
+        <div class="seccion">
+            <h2>10. Guía de Instalación</h2>
+            <h3>Paso 1: Requisitos Previos</h3>
+            <p>Asegúrate de tener instalado:</p>
+            <ul>
+                <li>PHP 8.1+</li>
+                <li>Composer</li>
+                <li>Node.js</li>
+                <li>Git</li>
+                <li>MySQL/MariaDB</li>
+            </ul>
+            <h3>Paso 2: Clonar el Repositorio</h3>
+            <div class="codigo">
+git clone &lt;url-del-repositorio&gt;
+cd camaras-app
+            </div>
+            <h3>Paso 3: Instalar Dependencias</h3>
+            <div class="codigo">
+# Instalar dependencias PHP
+composer install
+
+# Instalar dependencias JavaScript
+npm install
+            </div>
+            <h3>Paso 4: Configurar Variables de Entorno</h3>
+            <div class="codigo">
+# Copiar archivo de configuración
+cp .env.example .env
+
+# Generar clave de aplicación
+php artisan key:generate
+            </div>
+            <h3>Paso 5: Configurar Base de Datos</h3>
+            <p>Editar el archivo <code>.env</code> con tus credenciales MySQL:</p>
+            <div class="codigo">
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=camaras_app
+DB_USERNAME=root
+DB_PASSWORD=
+            </div>
+            <h3>Paso 6: Ejecutar Migraciones</h3>
+            <div class="codigo">
+php artisan migrate
+            </div>
+            <h3>Paso 7: Compilar Activos Frontend</h3>
+            <div class="codigo">
+npm run build
+            </div>
+            <h3>Paso 8: Iniciar el Servidor</h3>
+            <div class="codigo">
+php artisan serve
+            </div>
+            <p>
+                La aplicación estará disponible en <code>http://localhost:8000</code>
+            </p>
+        </div>
+
+        <!-- 11. GUÍA DE USO -->
+        <div class="seccion">
+            <h2>11. Guía de Uso</h2>
+            <h3>11.1 Acceder al Sistema</h3>
+            <ol>
+                <li>Abre tu navegador web</li>
+                <li>Navega a <code>http://localhost:8000/login</code></li>
+                <li>Ingresa tu email y contraseña</li>
+                <li>Haz clic en "Ingresar"</li>
+            </ol>
+            <h3>11.2 Ver Lista de Cámaras</h3>
+            <ol>
+                <li>Una vez autenticado, serás redirigido a la lista de cámaras</li>
+                <li>Verás una tabla con todas las cámaras registradas</li>
+                <li>En la parte superior hay un dashboard con estadísticas</li>
+            </ol>
+            <h3>11.3 Crear Nueva Cámara</h3>
+            <ol>
+                <li>Haz clic en el botón "Nueva Cámara"</li>
+                <li>Completa los campos obligatorios (Nombre, IP, Ubicación)</li>
+                <li>Opcionalmente completa los campos de NVR, Canal y MAC</li>
+                <li>Haz clic en "Guardar"</li>
+            </ol>
+            <h3>11.4 Buscar y Filtrar Cámaras</h3>
+            <ol>
+                <li>En la página principal, verás campos de búsqueda para:</li>
+                <ul>
+                    <li>Nombre</li>
+                    <li>IP</li>
+                    <li>Ubicación</li>
+                    <li>NVR</li>
+                    <li>Canal</li>
+                    <li>MAC</li>
+                    <li>Estado</li>
+                </ul>
+                <li>Ingresa los criterios de búsqueda deseados</li>
+                <li>Los resultados se filtrarán automáticamente</li>
+            </ol>
+            <h3>11.5 Editar una Cámara</h3>
+            <ol>
+                <li>Haz clic en el botón "Editar" de la cámara deseada</li>
+                <li>Modifica los datos necesarios</li>
+                <li>Haz clic en "Actualizar"</li>
+            </ol>
+            <h3>11.6 Eliminar una Cámara</h3>
+            <ol>
+                <li>Haz clic en el botón "Eliminar" de la cámara deseada</li>
+                <li>Confirma la eliminación</li>
+                <li>La cámara será eliminada de la base de datos</li>
+            </ol>
+            <h3>11.7 Cerrar Sesión</h3>
+            <ol>
+                <li>Haz clic en el menú de usuario (esquina superior derecha)</li>
+                <li>Selecciona "Cerrar Sesión"</li>
+            </ol>
+        </div>
+
+        <!-- 12. TECNOLOGÍAS UTILIZADAS -->
+        <div class="seccion">
+            <h2>12. Tecnologías Utilizadas</h2>
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Tecnología</th>
+                        <th>Versión</th>
+                        <th>Propósito</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Laravel</td>
+                        <td>11.0+</td>
+                        <td>Framework PHP para backend</td>
+                    </tr>
+                    <tr>
+                        <td>PHP</td>
+                        <td>8.1+</td>
+                        <td>Lenguaje de programación</td>
+                    </tr>
+                    <tr>
+                        <td>MySQL</td>
+                        <td>5.7+</td>
+                        <td>Base de datos relacional</td>
+                    </tr>
+                    <tr>
+                        <td>Blade</td>
+                        <td>Laravel</td>
+                        <td>Motor de plantillas</td>
+                    </tr>
+                    <tr>
+                        <td>Tailwind CSS</td>
+                        <td>4.0+</td>
+                        <td>Framework CSS utilitario</td>
+                    </tr>
+                    <tr>
+                        <td>Vite</td>
+                        <td>5.0+</td>
+                        <td>Bundler de activos frontend</td>
+                    </tr>
+                    <tr>
+                        <td>Eloquent ORM</td>
+                        <td>Laravel</td>
+                        <td>Mapeo objeto-relacional</td>
+                    </tr>
+                    <tr>
+                        <td>Laravel Migrations</td>
+                        <td>Laravel</td>
+                        <td>Control de versiones de BD</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 13. CONCLUSIONES -->
+        <div class="seccion">
+            <h2>13. Conclusiones</h2>
+            <div class="conclusiones">
+                <p>
+                    <strong>El Sistema de Gestión de Cámaras</strong> es una aplicación robusta, moderna y fácil de usar
+                    que proporciona todas las herramientas necesarias para administrar una red de cámaras de vigilancia.
+                </p>
+                <p>
+                    Con su interfaz intuitiva, búsqueda avanzada y monitoreo automático, permite a los administradores
+                    mantener un control completo sobre el estado de todas las cámaras registradas en el sistema.
+                </p>
+                <p>
+                    La arquitectura escalable basada en Laravel permite agregar fácilmente nuevas funcionalidades en el futuro,
+                    como integración con sistemas de grabación, notificaciones automáticas, y reportes avanzados.
+                </p>
+                <p>
+                    Este proyecto demuestra el uso de buenas prácticas en desarrollo web, incluyendo autenticación segura,
+                    validación de datos, búsqueda avanzada y monitoreo en tiempo real.
+                </p>
+            </div>
+        </div>
+
+        <!-- PIE DE PÁGINA -->
+        <div class="fecha">
+            <p>Documentación generada el 1 de Junio de 2026</p>
+            <p>Sistema de Gestión de Cámaras v1.0.0</p>
+        </div>
+    </div>
+</body>
+</html>
