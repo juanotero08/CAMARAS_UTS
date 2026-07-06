@@ -198,17 +198,17 @@
                                         @if($camara->estado == 'DISPONIBLE')
                                             <span class="inline-flex items-center gap-1 px-2 py-1 bg-emerald-500/20 border border-emerald-400/30 rounded-full text-emerald-300 text-xs font-medium">
                                                 <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-                                                <span class="hidden sm:inline">Disponible</span>
+                                                <span>Disponible</span>
                                             </span>
                                         @elseif($camara->estado == 'CAIDA')
                                             <span class="inline-flex items-center gap-1 px-2 py-1 bg-red-500/20 border border-red-400/30 rounded-full text-red-300 text-xs font-medium">
                                                 <span class="w-2 h-2 bg-red-400 rounded-full"></span>
-                                                <span class="hidden sm:inline">Caída</span>
+                                                <span>Caída</span>
                                             </span>
                                         @elseif($camara->estado == 'ESPERA')
                                             <span class="inline-flex items-center gap-1 px-2 py-1 bg-yellow-500/20 border border-yellow-400/30 rounded-full text-yellow-300 text-xs font-medium">
                                                 <span class="w-2 h-2 bg-yellow-400 rounded-full"></span>
-                                                <span class="hidden sm:inline">En espera</span>
+                                                <span>En espera</span>
                                             </span>
                                         @endif
                                     </td>
