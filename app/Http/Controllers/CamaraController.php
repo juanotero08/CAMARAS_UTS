@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class CamaraController extends Controller
 {
+private function normalizarIpParaOrdenar(?string $ip): string
+{
+    $octetos = array_map('intval', explode('.', (string) $ip));
+    $octetos = array_pad($octetos, 4, 0);
+
+    return implode('.', array_map(function ($octeto) {
+        return str_pad((string) $octeto, 3, '0', STR_PAD_LEFT);
+    }, array_slice($octetos, 0, 4)));
+}
+
 public function index(Request $request)
 {
     $query = Camara::query();
@@ -40,14 +50,12 @@ public function index(Request $request)
         $query->where('estado', 'like', '%' . $request->estado . '%');
     }
 
-    $sort = $request->get('sort');
-    if ($sort === 'ip_desc') {
-        $query->orderBy('ip', 'desc');
-    } else {
-        $query->orderBy('ip', 'asc');
-    }
-
     $camaras = $query->get();
+
+    $sort = $request->get('sort');
+    $camaras = $camaras->sortBy(function ($camara) {
+        return $this->normalizarIpParaOrdenar($camara->ip);
+    }, SORT_NATURAL, $sort === 'ip_desc')->values();
 
     $activas = Camara::where('estado', 'DISPONIBLE')->count();
     $caidas = Camara::where('estado', 'CAIDA')->count();
